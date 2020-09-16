@@ -29,3 +29,28 @@ new Promise((resolve, reject) => {
 })
   .finally(() => console.log("Promise ready"))
   .then(result => console.log(result));
+  
+ /**************************************/
+var promise11 = new Promise(function(resolve,reject){
+		resolve(new Error("error 1"));
+});
+
+var promise22 = new Promise(function(resolve,reject){
+		//setTimeout(function(){
+			resolve(new Error("error 2"));
+		//},1000);
+});
+var promise33 = new Promise(function(resolve,reject){
+		//setTimeout(function(){
+			resolve(new Error("error 3"));
+		//},2000);
+});
+var promise44 = new Promise(function(resolve,reject){
+		//setTimeout(function(){
+			resolve(new Error("error 4"));
+		//},3000);
+});
+
+Promise.all([promise11,promise22,promise33,promise44]).then(function(value){
+ console.log(value);
+}); 
